@@ -4,7 +4,6 @@
 #include <limits>
 #include <string>
 #include <vector>
-#include <sstream>
 
 void grid(int x);
 void changeArray(char arr[], int size);
@@ -14,8 +13,6 @@ int checkIntInput();
 int playerTurn(int x);
 void singleP(int m);
 void twoP();
-int getRandomNumberFromList(std::string s);
-int impossible(bool b);
 
 char t[] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 std::vector<int> tt;
@@ -159,33 +156,6 @@ void singleP(int m) {
             break;
         }
     }
-}
-
-int impossible(bool b) {
-    int x = tt[tt.size() - 1];
-
-    switch (x) {
-        case 1:
-            x = getRandomNumberFromList("3 5 7 9"); break;
-        default: std::cout << "ERROR";
-    }
-    
-    return x;
-}
-
-int getRandomNumberFromList(std::string s) {
-    std::istringstream iss(s);
-    std::vector<int> arr;
-
-    //std::cout << s;
-    int num, c = 0;
-    while (iss >> num) {
-        arr.push_back(num);
-        c++;
-        //std::cout << c;
-    }
-
-    return arr[getRandomNumber(0, c - 1)];
 }
 
 void twoP() {
